@@ -73,7 +73,8 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 cat /home/erlan/.cache/wal/sequences 
-
+#GITHUB SSH CONNECT
+eval $(keychain --eval --quiet ~/mykey)
 # Aliases
 alias screenshot='hyprshot -m window'
 alias ls='ls --color'
