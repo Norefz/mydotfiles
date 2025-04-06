@@ -1,0 +1,45 @@
+info_begin
+format: 2
+mpd_version: 0.23.15
+fs_charset: UTF-8
+tag: Artist
+tag: ArtistSort
+tag: Album
+tag: AlbumSort
+tag: AlbumArtist
+tag: AlbumArtistSort
+tag: Title
+tag: Track
+tag: Name
+tag: Genre
+tag: Date
+tag: OriginalDate
+tag: Composer
+tag: ComposerSort
+tag: Performer
+tag: Conductor
+tag: Work
+tag: Movement
+tag: MovementNumber
+tag: Ensemble
+tag: Location
+tag: Grouping
+tag: Disc
+tag: Label
+tag: MUSICBRAINZ_ARTISTID
+tag: MUSICBRAINZ_ALBUMID
+tag: MUSICBRAINZ_ALBUMARTISTID
+tag: MUSICBRAINZ_TRACKID
+tag: MUSICBRAINZ_RELEASETRACKID
+tag: MUSICBRAINZ_WORKID
+info_end
+song_begin: It's Going Down Now.mp3
+Time: 186.148000
+Format: 44100:24:2
+mtime: 1728504137
+song_end
+song_begin: Light the Fire Up in the Night _KAGEJIKAN_.mp3
+Time: 160.417000
+Format: 44100:24:2
+mtime: 1728497607
+song_end

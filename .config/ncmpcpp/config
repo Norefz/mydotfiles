@@ -1,0 +1,59 @@
+mpd_host = localhost
+mpd_port = 6600
+mpd_music_dir = "~/Music"
+autocenter_mode = "yes"
+follow_now_playing_lyrics = "yes"
+ignore_leading_the = "yes"
+ignore_diacritics = "yes"
+default_place_to_search_in = "database"
+
+## Display Modes ##
+#playlist_editor_display_mode = "columns"
+#search_engine_display_mode = "columns"
+#browser_display_mode = "columns"
+#playlist_display_mode = "columns"
+
+## General Colors ##
+colors_enabled = "yes"
+main_window_color = "white"
+header_window_color = "cyan"
+volume_color = "green"
+statusbar_color = "white"
+progressbar_color = "cyan"
+progressbar_elapsed_color = "white"
+
+
+
+## Classic Interface ##
+#song_status_format = " $6%a $7⟫⟫ $3%t $7⟫⟫ $4%b "
+
+## Visualizer ##
+#visualizer_fifo_path = "/tmp/mpd.fifo"
+#visualizer_output_name = "my_fifo"
+#visualizer_sync_interval = "60"
+#visualizer_type = "spectrum"
+#visualizer_in_stereo = "yes"
+#visualizer_look = "◆▋"
+
+## Navigation ##
+#cyclic_scrolling = "yes"
+#header_text_scrolling = "yes"
+#jump_to_now_playing_song_at_start = "yes"
+#lines_scrolled = "2"
+
+
+
+## Selected tracks ##
+selected_item_prefix = "* "
+discard_colors_if_item_is_selected = "yes"
+
+## Seeking ##
+incremental_seeking = "yes"
+seek_time = "1"
+
+
+
+## Progress Bar ##
+progressbar_look =  "=>-"
+
+execute_on_song_change = "~/.config/ncmpcpp/cover_obs.sh"
