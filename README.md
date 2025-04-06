@@ -1,5 +1,5 @@
 # mydotfiles
 This is My DOtfiles all changes will be stored in here,free to copy my config
 # Priview
-(wallpaper/2.jpeg)
+wallpaper/2.jpeg
 
