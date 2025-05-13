@@ -25,6 +25,9 @@ export HYPRSHOT_DIR="$HOME/Pictures/ttsasdos"
 export XDG_PICTURES_DIR="$HOME/Pictures/screenshots"
 export PATH=$PATH":$HOME/.local/bin"
 export PATH=$PATH":$HOME/.local/bin/scripts"
+export VISUAL=nvim;
+export EDITOR=nvim;
+
 #ranger SHIFT + X
 function ranger {
   local quit_cd_wd_file="$HOME/.cache/ranger/quit_cd_wd"        # The path must be the same as <file_saved_wd> in map.
@@ -82,7 +85,7 @@ alias la='ls -la'
 alias rice='fastfetch'
 alias yta-aac="yt-dlp --extract-audio --audio-format aac "
 alias yta-best="yt-dlp --extract-audio --audio-format best "
-alias yta-flac="yt-dlp --extract-audio --audio-format flac "
+alias yt-flac="yt-dlp --extract-audio --audio-format flac "
 alias yt-mp3="yt-dlp --extract-audio --audio-format mp3 "
 alias yt-mp4="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 "
 # Shell integrations

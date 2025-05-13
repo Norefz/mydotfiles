@@ -16,6 +16,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'frazrepo/vim-rainbow'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'francoiscabrol/ranger.vim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'SmiteshP/nvim-navic'
 call plug#end()
 
 
