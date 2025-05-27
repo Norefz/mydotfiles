@@ -20,7 +20,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'SmiteshP/nvim-navic'
 call plug#end()
 
-
+"modeon
 " set number.
   set number
 "turn syntax highlight on.
