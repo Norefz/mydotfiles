@@ -1,6 +1,4 @@
-
 #!/usr/bin/python3
-
 
 from assets.animations.waves_animations import waves_main, waves_start, waves_stop
 from assets.animations.nothing_animations import nothing_empty, nothing_flat
@@ -10,11 +8,9 @@ from assets.animations.cat_animations import cat_animations_list
 from shared import show_help, check_sound_and_player_status
 from animation_rules import token
 from pathlib import Path
-from time import sleep
-
-import shared
-
 import subprocess
+from time import sleep
+import shared
 import random
 import sys
 import os
@@ -67,9 +63,9 @@ def kill_cava(category, pid, stop_event):
     while True:
         sound, player = check_sound_and_player_status()
         if ((category == 'off' and player is True) or
-           (category == 'inactive' and (sound is True or player is False)) or
-           (category == 'active' and (sound is False or player is False)) or
-           stop_event.is_set()
+                (category == 'inactive' and (sound is True or player is False)) or
+                (category == 'active' and (sound is False or player is False)) or
+                stop_event.is_set()
         ):
             pid.kill()
             break
@@ -155,15 +151,15 @@ class Show(object):
         cava_position = option_values['cava_values'][f'{category}_cava_sections']
         play_cava = current_directory + '/scripts/play_cava.sh'
 
-        run_me_list = [play_cava, cava_position, token]
+        run_me = [play_cava, cava_position, token]
 
-        run_me_string = ""
+        string_args = ""
 
-        for i in run_me_list:
-            run_me_string += f"'{i}' "
+        for i in run_me:
+            string_args += f"'{i}' "
 
         try:
-            proc = subprocess.Popen([run_me_string], shell=True)
+            proc = subprocess.Popen([string_args], shell=True)
             thread1 = threading.Thread(target=proc.wait, args=())
             thread2 = threading.Thread(target=kill_cava, args=(category, proc, stop_event))
 
@@ -178,7 +174,7 @@ class Show(object):
             os.system(f"pkill -f {token}")
             stop_event.set()
         except Exception as e:
-            print(f"Cannot run CAVA: {e}")
+            print("Cannot run CAVA")
             sys.exit(1)
 
         remaining_pids = str(
@@ -229,7 +225,7 @@ def single_animation():
 
         show_animation = getattr(Show, option)
         if flag_values['off'] == "cava":
-            shared.player_name = "cava"
+            shared.player = "cava"
             current_category = "off"
         elif flag_values['off'] == "waves":
             current_category = "off"
@@ -242,10 +238,9 @@ def single_animation():
 def multiple_animations():
     current_category = 'off'
 
-    if shared.player_name == "":
+    if shared.player == "":
         print("No player specified!")
         show_help()
-    
     while True:
         sound, player = check_sound_and_player_status()
         if player is False:
@@ -266,31 +261,29 @@ def multiple_animations():
 def parse_arguments():
     received_flags = sys.argv
 
-    for i, _flag in enumerate(received_flags, 0):
+    for i, fl in enumerate(received_flags, 0):
 
-        if i == 0 or _flag in options:
+        if i == 0 or fl in options:
             continue
 
-        if "=" in _flag:
-            parse_option_with_value(received_flags[i - 1], _flag)
+        if "=" in fl:
+            parse_option_with_value(received_flags[i - 1], fl)
         else:
-            match _flag:
+            match fl:
                 case "-h" | "--help":
                     show_help()
                 case "-p" | "--player":
-                    shared.player_name = received_flags[i + 1]
+                    shared.player = received_flags[i + 1]
                 case _:
-                    match received_flags[i - 1]:
-                        case "-p" | "--player":
-                            continue
-                        case _:
-                           try:
-                               parse_flag(_flag, received_flags[i + 1])
-                           except IndexError:
-                               print(f"\nFlag without value was used! : '{_flag}'")
-                               show_help()
-
-                                    
+                    if (received_flags[i - 1] != "-p" and
+                            received_flags[i - 1] != "--player"):
+                        try:
+                            parse_flag(fl, received_flags[i + 1])
+                        except IndexError:
+                            print("\nIncorrect flag was used!")
+                            show_help()
+                
+                
 def main():
     parse_arguments()
 
@@ -302,4 +295,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

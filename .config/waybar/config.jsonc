@@ -1,96 +1,107 @@
-{
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    // "width": 1280, // Waybar width
-    // Choose the order of the modules
-    "modules-left": ["custom/archicon","hyprland/workspaces","custom/wayves"],
-    "modules-center": ["custom/music"],
-    "modules-right": ["pulseaudio","cava","network", "backlight", "battery", "clock", "custom/lock", "custom/power"],
-"custom/archicon": {
-        "format":  "    ",
-        "on-click": "~/Documents/github/Rofi/scripts/calendar.sh",
-        "tooltip": false
-    },
+[
+  {
+    "layer": "top",
+    "height": 40,
+    "spacing": 0,
+    "modules-left": ["custom/wayves", "hyprland/window"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": [
+      "mpris",
+      "temperature",
+      "wireplumber",
+      "backlight",
+      "clock",
+      "battery"
+    ],
     "hyprland/workspaces": {
-         "disable-scroll": true,
-         "sort-by-name": true,
-         "format": " {icon} ",
-         "format-icons": {
-             "default": "",
-         },
-     },
-    "tray": {
-        "icon-size": 21,
-        "spacing": 10
+      "disable-scroll": true,
+      "all-outputs": false,
+      "warp-on-scroll": false,
+      "format": "{icon}",
+      "format-icons": {
+        "1": " ", "2": " ", "3": " ", "4": " ", "5": " ", "6": " ",
+        "7": " ", "8": " ", "9": " ", "10": " ",
+        "urgent": "!", "active": " ", "default": "-"
+      }
+    },
+    "hyprland/window": {
+      "format": "{class}",
+      "max-length": 40,
+      "all-outputs": true
     },
     "custom/wayves": {
-    "format": "{}",
-    "exec": "python ~/.config/cava/scripts/waybar/wayves.py -o cava -i cava -a cava"
-},
-      
-    "custom/music": {
-        "format": "  {}",
-        "escape": true,
-        "interval": 5,
-        "tooltip": false,
-        "exec": "playerctl metadata --format=' {{ title }} - {{artist}}'",
-        "on-click": "playerctl play-pause",
-        "max-length": 50
+      "format" : "{}",
+      "exec": "python ~/.config/cava/wayves/wayves.py -o cava -i cava -a cava",
+      "tooltip": false
     },
-        
+    "mpris": {
+      "format": "{status_icon} {dynamic}",
+      "interval": 1,
+      "dynamic-len": 40,
+      "status-icons": {
+        "playing": "󰏤",
+        "paused": "󰐊",
+        "stopped": "󰓛"
+      },
+      "dynamic-order": ["title", "artist"]
+    },
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "󰅶",
+        "deactivated": "󰾪"
+      }
+    },
+    "hyprland/mode": {
+      "format": "{}"
+    },
+    "load": {
+      "format": "󰊚 {}"
+    },
     "clock": {
-        "timezone": "Asia/Jakarta",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": " {:%d/%m/%Y}",
-        "format": " {:%H:%M}"
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format": "󰥔  {:%H:%M}",
+      "format-alt": "󰃭  {:%Y-%m-%d}"
     },
     "backlight": {
-        "device": "intel_backlight",
-        "format": "{icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+      "format": "{icon} {percent}%",
+      "format-icons": ["󰃞 ", "󰃟 ", "󰃠 "]
+    },
+    "temperature": {
+      "interval": 10,
+      "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
+      "critical-threshold": 80,
+      "format-critical": "󰸁 {temperatureC}°C",
+      "format": "󰔏 {temperatureC}°C"
     },
     "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}  {capacity}%" ,
-        "format-charging":" {capacity}%",
-        "format-plugged": "FULL",
-        "format-alt": "{icon}",
-        "format-icons": ["", "", "", "", ""]
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{icon} {capacity}%",
+      "format-full": "󰁹 {capacity}%",
+      "format-charging": "󰂄 {capacity}%",
+      "format-plugged": "󰚥 {capacity}%",
+      "format-alt": "{icon} {time}",
+      "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": " ",
-        "format-disconnected": "⚠Disconnected ",
-    },
-   "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{icon} {volume}%",
-        "format-muted": "",
-        "format-icons": {
-	    "headphone": " ", "headset": " ",
-            "default": ["", "", " "]
-        },
-        "on-click": "pavucontrol"
-    },
-    "custom/lock": {
-        "tooltip": false,
-        "on-click": "hyprlock",
-        "format": "",
-    },
-    "custom/power": {
-        "tooltip": false,
-        "on-click": "~/.config/wofi/powermenu.sh",
-        "format": "⏻"
-    },
-    
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true
-  },
-}
+    "wireplumber": {
+      "scroll-step": 5,
+      "format": "{icon} {volume}%",
+      "format-bluetooth": "󰂰 {volume}%",
+      "format-bluetooth-muted": "󰂲",
+      "format-muted": "󰝟",
+      "format-icons": {
+        "headphone": "󰋋",
+        "hands-free": "󰋎",
+        "headset": "󰋎",
+        "phone": "󰏲",
+        "portable": "󰄝",
+        "car": "󰄋",
+        "default": ["󰕿", "󰖀", "󰕾"]
+      },
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    }
+  }
+]

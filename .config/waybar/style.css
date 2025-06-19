@@ -1,125 +1,185 @@
-@import "css/latte.css";
-@import "/home/erlan/.cache/wal/colors-waybar.css";
 
+
+@define-color base #191724;
+@define-color surface #1f1d2e;
+@define-color overlay #26233a;
+@define-color muted #6e6a86;
+@define-color subtle #908caa;
+@define-color text #e0def4;
+@define-color love #eb6f92;
+@define-color gold #f6c177;
+@define-color rose #ebbcba;
+@define-color pine #31748f;
+@define-color foam #9ccfd8;
+@define-color iris #c4a7e7;
 
 * {
-  font-family: FantasqueSansMono Nerd Font;
-  font-size: 17px;
-  min-height: 0;
+  font-family: "JetBrainMono";
+  font-size: 13px;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition: all 0.2s ease;
 }
-#waybar {
-  background: transparent;
+
+
+#custom-wayves{
+  margin-right:10px;
+  margin-left:10px;
+  margin-top:7px;
+  border-radius: 15px;
+  background-color:rgba(31, 29, 46, 0.6);
+  padding:10px;
+}
+#window{
+  margin-right:15px;
+  margin-top:7px;
+  border-radius: 15px;
+  background-color:rgba(31, 29, 46, 0.6);
+  padding:10px;
+}
+window#waybar {
+  background-color: transparent;
   color: @text;
-  margin: 5px 5px;
 }
 
-#custom-archicon {
-  color: @blue;
-  border-radius: 1rem;
-  margin: 5px ;
-  margin-left: 1rem;
-  background-color: @surface0;
+window#waybar.hidden {
+  opacity: 0.2;
+}
 
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+.modules-right {
+  margin: 5px 5px 0 0;
+  border-radius: 12px;
+  background-color:rgba(31, 29, 46, 0.6);
+}
+
+.modules-center {
+  margin: 5px 0 0 0;
+  border-radius: 12px;
+  background-color: rgba(31, 29, 46, 1);
+}
+
+/* .modules-left { */
+/*   margin: 5px 0 0 5px; */
+/*   border-radius: 12px; */
+/*   background-color: rgba(31, 29, 46, 1); */
+/* } */
+
+button {
+  border: none;
+  padding: 0 5px;
 }
 
 #workspaces {
-  border-radius: 1rem;
-  margin: 5px;
-  background-color: @surface0;
+  margin: 0 2px;
+  padding: 0 2px;
 }
 
 #workspaces button {
-  color: @lavender;
-  border-radius: 1rem;
-  padding: 0.4rem;
+  padding: 0;
+  background-color: @muted;
+  color: @muted;
+  font-weight: 500;
+  border-radius: 8;
+  min-height: 8px;
+  min-width: 17px;
+  margin: 6px 2px;
 }
-
 #workspaces button.active {
-  color: @sky;
-  border-radius: 1rem;
+  min-width: 28px;
+  background-color: @rose;
 }
 
 #workspaces button:hover {
-  color: @sapphire;
-  border-radius: 1rem;
+  background-color: rgba(38, 35, 58, 0.5);
 }
-#custom-music,
-#tray,
-#backlight,
+
+#workspaces button.urgent {
+  background-color: @love;
+  color: @base;
+}
+
+#idle_inhibitor,
+#cava,
+#mode,
+#window,
 #clock,
-#network,
 #battery,
-#pulseaudio,
-#custom-lock,
-#custom-power {
-  background-color: @surface0;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
+#temperature,
+#backlight,
+#wireplumber,
+#mpris,
+#load {
+  padding: 6px 12px;
+  color: @text;
+  border-radius: 10;
 }
 
-#clock {
-  color: @blue;
-  border-radius: 0px 1rem 1rem 0px;
-  margin-right: 1rem;
+#mode {
+  background-color: @pine;
+  color: @base;
 }
 
-#battery {
-  color: @green;
+#battery.charging,
+#battery.plugged {
+  color: @pine;
 }
 
-#battery.charging {
-  color: @green;
+@keyframes blink {
+  to {
+    background-color: @love;
+    color: @base;
+  }
 }
 
-#battery.warning:not(.charging) {
-  color: @red;
+#battery.critical:not(.charging) {
+  color: @love;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
-#backlight {
-  color: @yellow;
+#wireplumber.muted {
+  color: @muted;
 }
 
-#backlight, #battery {
-    border-radius: 0;
+#mpris.playing {
+  color: @text;
 }
 
-#pulseaudio {
-  color: @maroon;
-  border-radius: 1rem 0px 0px 1rem;
-  margin-left: 1rem;
-}
-#network {
-  color: @maroon;
+#window {
+  font-weight: 500;
 }
 
-#custom-music {
-  color: @mauve;
-  border-radius: 1rem;
+/* Add subtle separators between modules */
+#idle_inhibitor,
+#cava,
+#mode,
+#temperature,
+#window,
+#clock,
+#battery,
+#backlight,
+#wireplumber,
+#mpris,
+#load {
+  border-right: 1px solid rgba(110, 106, 134, 0.2);
 }
 
-
-#custom-lock {
-    border-radius: 1rem 0px 0px 1rem;
-    color: @lavender;
+.modules-right > widget:last-child > *,
+.modules-left > widget:last-child > *,
+.modules-center > widget:last-child > * {
+  border-right: none;
 }
 
-#custom-power {
-    margin-right: 1rem;
-    border-radius: 0px 1rem 1rem 0px;
-    color: @red;
+/* Add hover effects to interactive elements */
+#idle_inhibitor:hover,
+#clock:hover,
+#battery:hover {
+  background-color: rgba(38, 35, 58, 0.5);
 }
-
-#tray {
-  margin-right: 1rem;
-  border-radius: 1rem;
-}
-#custom-wayves{
-    margin-right:1rem;
-    background-color:@surface0;
-    font-weight: bold;
-    color: @mauve;
-    border-radius:1rem;
-    margin-top:5px;
-    margin-bottom:5px;
-}
-
