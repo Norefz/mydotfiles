@@ -1,18 +1,27 @@
 [
   {
     "layer": "top",
-    "height": 40,
+    "height": 50,
     "spacing": 0,
-    "modules-left": ["custom/wayves", "hyprland/window"],
+    "modules-left": ["custom/wayves","custom/archicon","hyprland/window","mpris"],
     "modules-center": ["hyprland/workspaces"],
     "modules-right": [
-      "mpris",
+      "memory",
       "temperature",
+      "network",
       "wireplumber",
       "backlight",
+      "battery",
       "clock",
-      "battery"
     ],
+
+
+    
+// "custom/archicon": {
+//         "format":  " ",
+//         "on-click": "~/Documents/github/Rofi/scripts/calendar.sh",
+//         "tooltip": false
+//     },
     "hyprland/workspaces": {
       "disable-scroll": true,
       "all-outputs": false,
@@ -60,12 +69,17 @@
     },
     "clock": {
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-      "format": "󰥔  {:%H:%M}",
+      "format": "󰃭  {:%d-%m  󰥔  %H:%M }",
       "format-alt": "󰃭  {:%Y-%m-%d}"
     },
     "backlight": {
       "format": "{icon} {percent}%",
       "format-icons": ["󰃞 ", "󰃟 ", "󰃠 "]
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": " ",
+        "format-disconnected": "⚠ Disconnected ",
     },
     "temperature": {
       "interval": 10,
@@ -74,6 +88,15 @@
       "format-critical": "󰸁 {temperatureC}°C",
       "format": "󰔏 {temperatureC}°C"
     },
+
+"memory": {
+    "interval": 5,
+    "format": " 󰍛  {used:0.1f}G",
+    "format-alt": " 󰍛  {percentage}%",
+    "tooltip": true,
+    "tooltip-format": "Memory: {used:0.1f}G / {total:0.1f}G ({percentage}%)\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G ({swapPercentage}%)",
+    "on-click": "kitty --title htop htop"
+},
     "battery": {
       "states": {
         "warning": 30,

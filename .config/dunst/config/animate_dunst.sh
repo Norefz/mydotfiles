@@ -1,19 +1,25 @@
 #!/bin/bash
-# Script Animasi Border Dunst V3 - Menggunakan 'dispatch setprop'
 
+# Script untuk menganimasikan border Dunst di Hyprland
+# dengan mengubah variabel sudut secara terus-menerus.
+
+# Inisialisasi sudut awal
 angle=0
-color1="rgb(0d47a1)"
-color2="rgb(90caf9)"
 
-# Loop tak terbatas untuk terus mencoba mengubah properti
+# Memulai loop tak terbatas
 while true; do
-  gradient_string="$color1 $color2 $color1 $angle""deg"
+  # Menggunakan hyprctl untuk mengubah nilai variabel 'dunstBorderAngle'
+  # yang sudah kita definisikan di hyprland.conf.
+  # 'int:' adalah tipe data yang kita kirim (integer).
+  hyprctl setvar 'int:dunstBorderAngle' $angle
 
-  # PERINTAH BARU YANG BENAR:
-  # Menggunakan 'dispatch setprop' dengan sintaks:
-  # dispatch setprop <property> <value> <window>
-  hyprctl dispatch setprop "bordercolor" "$gradient_string" "class:^(Dunst)$"
-
+  # Menambahkan nilai sudut.
+  # Anda bisa mengubah `+ 5` menjadi lebih besar (putaran lebih cepat/patah-patah)
+  # atau lebih kecil (putaran lebih lambat/halus).
   angle=$(((angle + 5) % 360))
+
+  # Jeda antar pembaruan untuk mengontrol kecepatan animasi.
+  # Nilai lebih kecil = animasi lebih cepat. Contoh: 0.01
+  # Nilai lebih besar = animasi lebih lambat. Contoh: 0.1
   sleep 0.02
 done
