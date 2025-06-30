@@ -79,8 +79,9 @@ cat /home/erlan/.cache/wal/sequences
 #GITHUB SSH CONNECT
 eval $(keychain --eval --quiet ~/mykey)
 # Aliases
+alias tree='exa -T --icons'
+alias ls='exa --icons'
 alias screenshot='hyprshot -m window'
-alias ls='ls --color'
 alias la='ls -la'
 alias rice='fastfetch'
 alias yta-aac="yt-dlp --extract-audio --audio-format aac "

@@ -17,11 +17,11 @@
 
 
     
-// "custom/archicon": {
-//         "format":  " ",
-//         "on-click": "~/Documents/github/Rofi/scripts/calendar.sh",
-//         "tooltip": false
-//     },
+"custom/archicon": {
+        "format":  " ",
+        "on-click": "~/Documents/github/Rofi/scripts/calendar.sh",
+        "tooltip": false
+    },
     "hyprland/workspaces": {
       "disable-scroll": true,
       "all-outputs": false,
@@ -46,9 +46,9 @@
     "mpris": {
       "format": "{status_icon} {dynamic}",
       "interval": 1,
-      "dynamic-len": 40,
+      "dynamic-len": 60,
       "status-icons": {
-        "playing": "󰏤",
+        "playing": " ",
         "paused": "󰐊",
         "stopped": "󰓛"
       },

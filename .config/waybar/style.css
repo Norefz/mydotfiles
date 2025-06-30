@@ -1,7 +1,6 @@
 @import "/home/erlan/.cache/wal/colors-waybar.css";
 
 
-@define-color color1 #ea6962;
 @define-color base #191724;
 @define-color surface #1f1d2e;
 @define-color overlay #26233a;
@@ -31,19 +30,25 @@
   border-radius: 20px;
   background-color:rgba(31, 29, 46, 0.6);
   padding:10px;
+  color:@color11
 }
 
-/* #custom-archicon{ */
-/*     background-color: rgba(31, 29, 46, 0.6); */
-/*     margin-top: 7px; */
-/*     border-radius:10px 0px 0px 10px; */
-/* } */
-#window{
+#custom-archicon {
     background-color: rgba(31, 29, 46, 0.6);
-    border-radius:20px;
     margin-top: 7px;
-    margin-right:7px; 
-  }
+    border-radius: 20px 0px 0px 20px; 
+    padding-left: 10px;
+    color:@color1
+
+}
+
+#window {
+    background-color: rgba(31, 29, 46, 0.6);
+    border-radius: 0px 20px 20px 0px;  
+    margin-top: 7px;
+    /* margin-left: -1px;  */
+    margin-right:7px;
+  } 
 
 window#waybar {
   background-color: transparent;
@@ -55,8 +60,18 @@ window#waybar.hidden {
 }
 
 window#waybar.empty #window {
-  background-color: transparent;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
 }
+
+window#waybar.empty #custom-archicon {
+    border-radius: 20px;
+    margin-right: 7px;
+    padding-left:10px;
+    padding-right: 10px;
+  }
 
 /* .modules-right { */
 /*   margin: 5px 5px 0 0; */
@@ -85,9 +100,7 @@ button {
   margin: 0 2px;
   padding: 0 2px;
 }
-#custom-wayves{
-color:@color13;
-}
+
 #workspaces button {
   padding: 0;
   background-color: @muted;
@@ -153,7 +166,6 @@ color:@color13;
     background-color: rgba(31, 29, 46, 0.6);
     border-radius: 0px 20px 20px 0px;
     margin-top: 7px;
-    margin-left: -3px;
     margin-right:7px; 
   }
 #mpris{
