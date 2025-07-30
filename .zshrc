@@ -15,13 +15,13 @@ eval "$(starship init zsh)"
 #command 
 pokemon-colorscripts -r
 
-
+setopt no_nomatch
 
 #export
 export SPACESHIP_C_SHOW=false export CC="clang"
 export CFLAGS="-fsanitize=signed-integer-overflow -fsanitize=undefined -ggdb3 -O0 -std=c11 -Wall -Werror -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wshadow"
 export LDLIBS="-lcrypt -lcs50 -lm"
-export HYPRSHOT_DIR="$HOME/Pictures/ttsasdos"
+export HYPRSHOT_DIR="$HOME//Pictures/screenshots"
 export XDG_PICTURES_DIR="$HOME/Pictures/screenshots"
 export PATH=$PATH":$HOME/.local/bin"
 export PATH=$PATH":$HOME/.local/bin/scripts"
