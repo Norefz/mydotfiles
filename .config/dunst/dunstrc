@@ -23,7 +23,7 @@
     #separator_width = 1
     #startup_notification = false
     corner_radius = 15
-frame_color = "#B19D82"
+frame_color = "#78A487"
     frame_width = 2
     width = 400
     progress_bar_max_width = 400
