@@ -19,7 +19,7 @@
     
 "custom/archicon": {
         "format":  " ",
-        "on-click": "~/Documents/github/Rofi/scripts/calendar.sh",
+  "on-click-right": "bash ~/.config/eww/scripts/toggle_music_popup.sh",
         "tooltip": false
     },
     "hyprland/workspaces": {
@@ -44,16 +44,21 @@
       "tooltip": false
     },
     "mpris": {
-      "format": "{status_icon} {dynamic}",
+      "format": "{status_icon}  {dynamic}",
       "interval": 1,
       "dynamic-len": 60,
       "status-icons": {
         "playing": " ",
-        "paused": "󰐊",
-        "stopped": "󰓛"
       },
-      "dynamic-order": ["title", "artist"]
+      "dynamic-order": ["title", "artist"],
+ // "on-click": "~/.config/eww/scripts/toggle_music_popup.sh"
     },
+
+"custom/music_popup": {
+  "format": "",
+  "on-click": "~/.config/eww/scripts/toggle_music_popup.sh",
+  "tooltip": false
+},
     "idle_inhibitor": {
       "format": "{icon}",
       "format-icons": {
@@ -122,7 +127,7 @@
         "phone": "󰏲",
         "portable": "󰄝",
         "car": "󰄋",
-        "default": ["󰕿", "󰖀", "󰕾"]
+        "default": ["󰕿 ", "󰖀 ", "󰕾 "]
       },
       "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     }

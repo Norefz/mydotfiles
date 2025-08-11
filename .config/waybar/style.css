@@ -145,15 +145,13 @@ button {
 #wireplumber{
     background-color: rgba(31, 29, 46, 0.6);
     margin-top: 7px;
-
     border-radius:20px 0px 0px 20px;
 }
 #backlight{
     background-color: rgba(31, 29, 46, 0.6);
     border-radius: 0px 20px 20px 0px;
     margin-top: 7px;
-    margin-left: -1px;
-    margin-right:7px; 
+    margin-right:7px;
   }
 #memory{
     background-color: rgba(31, 29, 46, 0.6);
@@ -177,6 +175,7 @@ button {
 }
 #network{
   margin-right:7px;
+  color:#29e35a;
   margin-top:7px;
 border-radius: 20px;
   background-color:rgba(31, 29, 46, 0.6);
@@ -235,8 +234,6 @@ border-radius: 20px;
 #window,
 #clock,
 #battery,
-#backlight,
-#wireplumber,
 #mpris,
 #network,
 #load {
