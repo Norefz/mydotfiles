@@ -19,7 +19,7 @@
     
 "custom/archicon": {
         "format":  " ",
-  "on-click-right": "bash ~/.config/eww/scripts/toggle_music_popup.sh",
+        "on-click": "eww open music_popup",
         "tooltip": false
     },
     "hyprland/workspaces": {

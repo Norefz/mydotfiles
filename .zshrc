@@ -76,6 +76,9 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 #wall/pywall
 cat /home/erlan/.cache/wal/sequences 
+#RUN NVIDIA GPU ON WINE
+alias wine='DRI_PRIME=1 wine'
+alias wine64='DRI_PRIME=1 wine64'
 #GITHUB SSH CONNECT
 eval $(keychain --eval --quiet ~/mykey)
 # Aliases
