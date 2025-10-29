@@ -18,6 +18,8 @@ pokemon-colorscripts -r
 setopt no_nomatch
 
 #export
+export QT_QPA_PLATFORMTHEME=gtk2
+# export CFLAGS="-Wno-error"
 export SPACESHIP_C_SHOW=false export CC="clang"
 export CFLAGS="-fsanitize=signed-integer-overflow -fsanitize=undefined -ggdb3 -O0 -std=c11 -Wall -Werror -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wshadow"
 export LDLIBS="-lcrypt -lcs50 -lm"

@@ -5,12 +5,12 @@
 [general]
 
 
-bars = 7
+bars = 6
 framerate = 60
-
+stereo = true
 
 # Smoothing mode. Can be 'normal', 'scientific' or 'waves'. DEPRECATED as of 0.6.0
-; mode = normal
+mode = normal
 
 # Accepts only non-negative values.
 ; framerate = 60
@@ -28,7 +28,7 @@ framerate = 60
 # The number of bars (0-200). 0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
 ; bars = 16
-; bar_width = 1
+ bar_width = 1
 ; bar_spacing = 100
 # bar_height is only used for output in "noritake" format
 ; bar_height = 32
@@ -115,7 +115,7 @@ method = raw
 data_format = ascii
 
 # Binary bit format, can be '8bit' (0-255) or '16bit' (0-65530).
-; bit_format = 16bit
+# ; bit_format = 16bit
 
 # Ascii max value. In 'ascii' mode range will run from 0 to value specified here
 ascii_max_range = 7
