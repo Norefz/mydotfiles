@@ -2,8 +2,13 @@
   {
     "layer": "top",
     "height": 50,
-    "spacing": 0,
-    "modules-left": ["custom/wayves","custom/archicon","hyprland/window","mpris"],
+    "spacing": 24,
+    "modules-left": [
+      "custom/wayves",
+      "custom/archicon",
+      "hyprland/window",
+      "mpris",
+    ],
     "modules-center": ["hyprland/workspaces"],
     "modules-right": [
       "memory",
@@ -15,12 +20,10 @@
       "clock",
     ],
 
-
-    
-"custom/archicon": {
-        "format":  " ",
-        "on-click": "eww open music_popup",
-        "tooltip": false
+    "custom/archicon": {
+      "format": " ",
+      "on-click": "eww open music_popup",
+      "tooltip": false,
     },
     "hyprland/workspaces": {
       "disable-scroll": true,
@@ -28,20 +31,30 @@
       "warp-on-scroll": false,
       "format": "{icon}",
       "format-icons": {
-        "1": " ", "2": " ", "3": " ", "4": " ", "5": " ", "6": " ",
-        "7": " ", "8": " ", "9": " ", "10": " ",
-        "urgent": "!", "active": " ", "default": "-"
-      }
+        "1": " ",
+        "2": " ",
+        "3": " ",
+        "4": " ",
+        "5": " ",
+        "6": " ",
+        "7": " ",
+        "8": " ",
+        "9": " ",
+        "10": " ",
+        "urgent": "!",
+        "active": " ",
+        "default": "-",
+      },
     },
     "hyprland/window": {
       "format": "{class}",
       "max-length": 40,
-      "all-outputs": true
+      "all-outputs": true,
     },
     "custom/wayves": {
-      "format" : "{}",
+      "format": "{}",
       "exec": "python ~/.config/cava/wayves/wayves.py -o cava -i cava -a cava",
-      "tooltip": false
+      "tooltip": false,
     },
     "mpris": {
       "format": "{status_icon}  {dynamic}",
@@ -51,68 +64,68 @@
         "playing": " ",
       },
       "dynamic-order": ["title", "artist"],
- // "on-click": "~/.config/eww/scripts/toggle_music_popup.sh"
+      // "on-click": "~/.config/eww/scripts/toggle_music_popup.sh"
     },
 
-"custom/music_popup": {
-  "format": "",
-  "on-click": "~/.config/eww/scripts/toggle_music_popup.sh",
-  "tooltip": false
-},
+    "custom/music_popup": {
+      "format": "",
+      "on-click": "~/.config/eww/scripts/toggle_music_popup.sh",
+      "tooltip": false,
+    },
     "idle_inhibitor": {
       "format": "{icon}",
       "format-icons": {
         "activated": "󰅶",
-        "deactivated": "󰾪"
-      }
+        "deactivated": "󰾪",
+      },
     },
     "hyprland/mode": {
-      "format": "{}"
+      "format": "{}",
     },
     "load": {
-      "format": "󰊚 {}"
+      "format": "󰊚 {}",
     },
     "clock": {
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
       "format": "󰃭  {:%d-%m  󰥔  %H:%M }",
-      "format-alt": "󰃭  {:%Y-%m-%d}"
+      "format-alt": "󰃭  {:%Y-%m-%d}",
     },
     "backlight": {
       "format": "{icon} {percent}%",
-      "format-icons": ["󰃞 ", "󰃟 ", "󰃠 "]
+      "format-icons": ["󰃞 ", "󰃟 ", "󰃠 "],
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": " ",
-        "format-disconnected": "⚠ Disconnected ",
+      // "interface": "wlp2*", // (Optional) To force the use of this interface
+      "format-wifi": " ",
+      "format-disconnected": "⚠ Disconnected ",
     },
     "temperature": {
       "interval": 10,
       "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
       "critical-threshold": 80,
       "format-critical": "󰸁 {temperatureC}°C",
-      "format": "󰔏 {temperatureC}°C"
+      "format": "󰔏 {temperatureC}°C",
     },
 
-"memory": {
-    "interval": 5,
-    "format": " 󰍛  {used:0.1f}G",
-    "format-alt": " 󰍛  {percentage}%",
-    "tooltip": true,
-    "tooltip-format": "Memory: {used:0.1f}G / {total:0.1f}G ({percentage}%)\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G ({swapPercentage}%)",
-    "on-click": "kitty --title htop htop"
-},
+    "memory": {
+      "interval": 5,
+      "format": " 󰍛  {used:0.1f}G",
+      "format-alt": " 󰍛  {percentage}%",
+      "tooltip": true,
+      "tooltip-format": "Memory: {used:0.1f}G / {total:0.1f}G ({percentage}%)\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G ({swapPercentage}%)",
+      "on-click": "kitty --title htop htop",
+    },
     "battery": {
       "states": {
         "warning": 30,
-        "critical": 15
+        "critical": 15,
       },
       "format": "{icon} {capacity}%",
       "format-full": "󰁹 {capacity}%",
       "format-charging": "󰂄 {capacity}%",
       "format-plugged": "󰚥 {capacity}%",
       "format-alt": "{icon} {time}",
-      "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+      "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     },
     "wireplumber": {
       "scroll-step": 5,
@@ -127,9 +140,9 @@
         "phone": "󰏲",
         "portable": "󰄝",
         "car": "󰄋",
-        "default": ["󰕿 ", "󰖀 ", "󰕾 "]
+        "default": ["󰕿 ", "󰖀 ", "󰕾 "],
       },
-      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-    }
-  }
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    },
+  },
 ]
